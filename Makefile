@@ -2,6 +2,9 @@ include .env
 
 .PHONY:build clean test  deploy deploy-sepolia fund withdraw balance help
 
+install:
+	@forge install smartcontractkit/chainlink-brownie-contracts Cyfrin/foundry-devops --no-commit
+
 build:
 	@forge build
 
@@ -33,14 +36,15 @@ balance:
 
 help:
 	@echo "Available targets:"
-	@echo "  build         - Build the project"
-	@echo "  clean         - Clean build artifacts"
-	@echo "  test          - Run tests"
-	@echo "  deploy        - Deploy to custom RPC (e.g., local anvil)"
+	@echo "  build          - Build the project"
+	@echo "  install        - to install dependencies"
+	@echo "  clean          - Clean build artifacts"
+	@echo "  test           - Run tests"
+	@echo "  deploy         - Deploy to custom RPC (e.g., local anvil)"
 	@echo "  deploy-sepolia - Deploy to Sepolia with verification"
-	@echo "  fund          - Fund the contract"
-	@echo "  withdraw      - Withdraw from the contract"
-	@echo "  balance       - Check balance of ACCOUNT_ADDRESS (default: $(ACCOUNT_ADDRESS))"
-	@echo "                  Usage: make balance ACCOUNT_ADDRESS=0x<address>"
-	@echo "  help          - Show this help message"
+	@echo "  fund           - Fund the contract"
+	@echo "  withdraw       - Withdraw from the contract"
+	@echo "  balance        - Check balance of ACCOUNT_ADDRESS (default: $(ACCOUNT_ADDRESS))"
+	@echo "                   Usage: make balance ACCOUNT_ADDRESS=0x<address>"
+	@echo "  help           - Show this help message"
 
